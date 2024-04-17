@@ -23,9 +23,10 @@ export class LoginComponent implements OnInit {
   login() {
     this.appservice.loginuser(this.LoginLists).subscribe(
       (data: any) => {
-        if (data.status === '1') {
+        if (data.status == '1') {
           // Login successful
           console.log('Login successful');
+          this.router.navigate(["Home"])
         } else {
           // Handle login failure
           console.error('Login failed:', data);
