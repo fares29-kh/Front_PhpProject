@@ -10,7 +10,7 @@ export class ApiServiceService {
 
   ////////////////////    Authentification    ///////////////////
   registeruser(data: any) {
-    let myData = this.http.post<any>('https://localhost:7111/auth/register', data);
+    let myData = this.http.post<any>('http://localhost/projetphp/Auth/signup.php', data);
     return myData;
   }
 
