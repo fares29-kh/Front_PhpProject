@@ -6,6 +6,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
+
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
@@ -18,25 +19,22 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private appservice: ApiServiceService) { }
 
   ngOnInit(): void {
+    console.log(this.LoginLists)
   }
   login() {
     this.appservice.loginuser(this.LoginLists).subscribe(
       (data: any) => {
-        if (data.status == "succee") {
-          // Login successful
+        if (data.status) {
           console.log(data.status);
-
-          this.router.navigate(['Home']);
+      this.router.navigate(['Home']);
         } else {
-          // Login failed
           console.error('Login failed:', data);
-          // You can show an error message to the user here
+          console.log(this.LoginLists.username);
         }
       },
       (error) => {
-        // Handle error
         console.error('An error occurred:', error);
-        // You can show an error message to the user here
+
       }
     );
   }

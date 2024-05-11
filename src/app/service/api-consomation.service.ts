@@ -10,8 +10,8 @@ export class ApiServiceService {
 
   ////////////////////    Authentification    ///////////////////
   registeruser(data: any) {
-    let myData = this.http.post<any>('http://localhost/projetphp/Auth/signup.php', data);
-    return myData;
+    
+    return this.http.post<any>('http://localhost/projetphp/Auth/signup.php', data);;
   }
 
   loginuser(data: any) {
@@ -19,8 +19,16 @@ export class ApiServiceService {
     return myData;
   }
 
+  
+  getCategory():any {
+    let myData = this.http.get<any>('http://localhost/projetphp/Business/CategorieController.php');
+    return myData;
+  }
 
-
+AddCategory(data: any) {
+    let myData = this.http.post<any>('http://localhost/projetphp/Business/CategorieController.php',data);
+    return myData;
+  }
 
 
 

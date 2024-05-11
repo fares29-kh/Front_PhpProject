@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -105,4 +105,41 @@
     <p class="text-white">Tout les droits reservee 2021</p>
 </div>
 </body>
-</html>
+</html> -->
+<ng-container *ngFor="let a of categories">
+<div class="r2 r-com">
+  <h5 class="categorie">{{a.nomC}}</h5>
+  <div class="r2-ratt"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+          class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+  <ul>
+      <li>Max Adult : {{a.descriptionC}}</li>
+      <li>Max Child : {{a.date_creation}}</li>
+  </ul>
+</div>
+</ng-container>
+<form (ngSubmit)="saveProduct()" >
+  <div>
+    <label for="title">Title:</label>
+    <input type="text" id="title" [(ngModel)]="categorie.nomC" name="title" required>
+  </div>
+
+  <div>
+    <label for="price">Price:</label>
+    <input type="number" id="price" [(ngModel)]="categorie.descriptionC" name="price" required>
+  </div>
+
+  <div>
+    <label for="description">Description:</label>
+    <textarea id="description"  [(ngModel)]="categorie.date_creation" name="description" required></textarea>
+  </div>
+
+  <div>
+    <label for="image">Image URL:</label>
+    <input type="text"  [(ngModel)]="categorie.date_modification" id="image" name="image" required>
+  </div>
+
+
+  <button type="submit">Save Product</button>
+</form>
+
+
