@@ -34,16 +34,51 @@ export class HomeComponent implements OnInit {
 
 
   saveProduct() {
-    this.appservice.AddCategory(this.categorie)
+    if (!this.validateForm()) {
+      console.error('Form data is not valid');
+      return;
+    }
+  
+    const formData = {
+      nomC: this.categorie.nomC,
+      descriptionC: this.categorie.descriptionC,
+      date_creation: this.categorie.date_creation,
+      date_modification: this.categorie.date_modification
+    };
+  
+    this.appservice.AddCategory(formData)
       .subscribe(
-        () => {
-          console.log('Category added successfully');
-          
+        (response: any) => {
+          console.log('Category added successfully', response);
+
+          this.clearForm();
         },
         (error) => {
           console.error('An error occurred while adding category:', error);
         }
       );
   }
+  
+  
+  validateForm(): boolean {
+    // Perform validation on form inputs
+    // For example, check if required fields are filled
+    if (!this.categorie.nomC || !this.categorie.descriptionC || !this.categorie.date_creation) {
+      console.error('Missing required fields');
+      return false;
+    }
+    return true;
+  }
+  
+  clearForm() {
+
+    this.categorie = {
+      nomC: '',
+      descriptionC: '',
+      date_creation: '',
+      date_modification: ''
+    };
+  }
+  
   
 }

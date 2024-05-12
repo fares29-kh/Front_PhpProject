@@ -117,29 +117,29 @@
   </ul>
 </div>
 </ng-container>
-<form (ngSubmit)="saveProduct()" >
+<form>
   <div>
-    <label for="title">Title:</label>
-    <input type="text" id="title" [(ngModel)]="categorie.nomC" name="title" required>
+    <label for="nomC">nomC:</label>
+    <input type="text" id="nomC" [(ngModel)]="categorie.nomC" name="nomC" required>
   </div>
 
   <div>
-    <label for="price">Price:</label>
-    <input type="number" id="price" [(ngModel)]="categorie.descriptionC" name="price" required>
+    <label for="descriptionC">descriptionC:</label>
+    <input type="text" id="descriptionC" [(ngModel)]="categorie.descriptionC" name="descriptionC" required>
   </div>
 
   <div>
-    <label for="description">Description:</label>
-    <textarea id="description"  [(ngModel)]="categorie.date_creation" name="description" required></textarea>
+    <label for="date_creation">date_creation:</label>
+    <textarea id="date_creation" [(ngModel)]="categorie.date_creation" name="date_creation" required></textarea>
   </div>
 
   <div>
-    <label for="image">Image URL:</label>
-    <input type="text"  [(ngModel)]="categorie.date_modification" id="image" name="image" required>
+    <label for="date_modification">date_modification</label>
+    <input type="text" [(ngModel)]="categorie.date_modification" id="date_modification" name="date_modification" required>
   </div>
 
-
-  <button type="submit">Save Product</button>
+  <button type="button" (click)="saveProduct()">Save Product</button>
 </form>
+
 
 
